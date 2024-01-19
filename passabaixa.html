@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequência de Corte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Calculadora de Frequência de Corte</h2>
+
+    <label for="resistencia">Resistência (R):</label>
+    <input type="number" id="resistencia" placeholder="Insira o valor da resistência (em ohms)" required>
+
+    <label for="capacitor">Capacitância (C):</label>
+    <input type="number" id="capacitor" placeholder="Insira o valor da capacitância (em farads)" required>
+
+    <button onclick="calcularFrequencia()">Calcular Frequência</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularFrequencia() {
+            // Obter os valores de resistência e capacitância
+            var resistencia = document.getElementById("resistencia").value;
+            var capacitor = document.getElementById("capacitor").value;
+
+            // Calcular a frequência de corte
+            var frequenciaCorte = 1 / (2 * Math.PI * resistencia * capacitor);
+
+            // Exibir o resultado
+            document.getElementById("resultado").innerHTML = "A frequência de corte é: " + frequenciaCorte.toFixed(2) + " Hz";
+        }
+    </script>
+
+</body>
+</html>
